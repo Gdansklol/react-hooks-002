@@ -54,3 +54,47 @@ This component demonstrates:
 - Good practice in managing **controlled form inputs**.
 - Clean rendering of dynamic lists.
 
+---
+
+## React  useContext + Context API – När, varför och när inte?
+
+### Vad är Context?
+- React Context används för att dela global data (t.ex. användare, tema, språk, autentisering) till komponenter utan att behöva skicka props genom varje nivå.
+
+### När bör du använda useContext?
+Situation	Exempel
+> Global state	Användarinformation, språkinställningar, mörkt/ljust tema
+> Data som behövs av många komponenter på olika nivåer	Auth-status, navigation, API-data
+> Undvika prop drilling	När props måste skickas genom många mellanliggande komponenter
+
+## När bör du inte använda Context?
+## Undvik Context när…	Varför?
+> Du bara behöver skicka data till 1–2 nivåer ner	Det är enklare med props
+> Data förändras ofta	Context orsakar omrendering av alla komponenter som använder den
+> Du vill göra komponenten återanvändbar eller testbar	Context gör det svårare att isolera komponentens beroenden
+> För att undvika prop drilling	Testa istället component composition eller ett state management-verktyg
+
+##  Alternativ till Context
+**Alternativ	Beskrivning**
+> Props	Bra för små appar eller när datan inte är djup
+> Component Composition	Ex: <Page><Sidebar /></Page>
+> Zustand, Redux, Jotai	När state är komplext, uppdateras ofta eller behöver devtools/debugging
+
+##  Exempel på när Context passar bra:
+
+
+
+##  Slutsats
+1. Använd Context för global delning av stabil data
+
+2. Undvik Context för ofta förändrade eller lokala tillstånd
+
+3.  `Prop drilling ≠ problem` – löses ibland bättre med komposition
+
+
+
+
+
+
+
+
