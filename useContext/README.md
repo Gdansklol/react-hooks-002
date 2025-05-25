@@ -1,12 +1,111 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- props version
 
-Currently, two official plugins are available:
+- App,jsx
+```jsx
+import { useState } from 'react'
+import './App.css';
+import Page from './components/Page';
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+function App() {
+const [isDark, setIsDark] = useState(false);
 
-## Expanding the ESLint configuration
+  return (
+    <>
+      <Page isDark={isDark} setIsDark={setIsDark} />
+    </>
+  )
+}
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+export default App;
+
+```
+
+- Page.jsx
+```jsx
+import React from 'react';
+import Header from './Header';
+import Content from './Content';
+import Footer from './Footer'
+
+const Page = ({isDark,setIsDark}) => {
+    return (
+        <div className="page">
+            <Header isDark={isDark}/>
+            <Content isDark={isDark} />
+            <Footer isDark={isDark} setIsDark={setIsDark} />
+        </div>
+    )
+}
+
+export default Page;
+```
+
+- Header.jsx
+```jsx
+import React from 'react';
+
+const Header = ({isDark}) => {
+  return (
+    <header 
+    className='header'
+        style={{
+            backgroundColor : isDark ? "black" : "lightgray",
+            color: isDark ? "white" : "black",
+        }}
+        >
+            <h1>Welcom SVT user !</h1>
+    </header>
+  )
+}
+
+export default Header
+```
+
+- Content.jsx
+```jsx
+import React from 'react'
+
+const Content = ({isDark}) => {
+  return (
+    <div className='contents'
+    style={{
+      backgroundColor: isDark ? "black" : "white",
+      color: isDark ? "white" : "black",
+    }}
+    >
+      <p>SVT user, Have a good day. </p>
+    </div>
+  )
+}
+
+export default Content;
+```
+
+- Foooter.jsx
+```jsx
+import React from 'react';
+
+
+const Footer = ({isDark, setIsDark }) => {
+    const toogleTheme = () => {
+        setIsDark("isDakr");
+    }
+  return (
+    <footer
+     className='footer'
+     style={{
+        backgroundColor: isDark ? "black" : "lightgray",
+
+     }}
+     >
+       <button className='button' onClick={toogleTheme}>
+        Dark Mode
+        </button> 
+     </footer>
+  )
+}
+
+export default Footer;
+```

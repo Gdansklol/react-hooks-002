@@ -1,8 +1,16 @@
 import React from 'react';
 
-const Header = () => {
+const Header = ({isDark}) => {
   return (
-    <div>Header</div>
+    <header 
+    className='header'
+        style={{
+            backgroundColor : isDark ? "black" : "lightgray",
+            color: isDark ? "white" : "black",
+        }}
+        >
+            <h1>Welcom SVT user !</h1>
+    </header>
   )
 }
 
