@@ -107,5 +107,6 @@ const Footer = ({isDark, setIsDark }) => {
   )
 }
 
+
 export default Footer;
 ```
