@@ -90,7 +90,7 @@ import React from 'react';
 
 const Footer = ({isDark, setIsDark }) => {
     const toogleTheme = () => {
-        setIsDark("isDakr");
+        setIsDark(!isDark);
     }
   return (
     <footer

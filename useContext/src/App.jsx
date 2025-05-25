@@ -1,13 +1,17 @@
 import { useState } from 'react'
-import './App.css';
+import './index.css';
 import Page from './components/Page';
+import { ThemeContext } from './context/ThemeContext';
 
 function App() {
 const [isDark, setIsDark] = useState(false);
 
   return (
     <>
-      <Page isDark={isDark} setIsDark={setIsDark} />
+    <ThemeContext.Provider value={{isDark, setIsDark}}>
+    <Page />
+    </ThemeContext.Provider>
+     
     </>
   )
 }

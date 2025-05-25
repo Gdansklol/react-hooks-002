@@ -1,6 +1,10 @@
-import React from 'react';
+import React,{useContext} from 'react';
+import { ThemeContext } from '../context/ThemeContext';
 
-const Header = ({isDark}) => {
+const Header = () => {
+  const {isDark} = useContext(ThemeContext);
+  console.log("isDark", isDark);
+
   return (
     <header 
     className='header'
@@ -9,9 +13,9 @@ const Header = ({isDark}) => {
             color: isDark ? "white" : "black",
         }}
         >
-            <h1>Welcom SVT user !</h1>
+            <h1>Welcome SVT user !</h1>
     </header>
   )
 }
 
-export default Header
+export default Header;
